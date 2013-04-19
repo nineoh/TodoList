@@ -1,0 +1,35 @@
+body {
+	background-color: #576D7F;
+}
+
+div#appContainer {
+}
+
+div#taskList div {
+	color: #fff;
+	padding-top:2px;
+	padding-left:5px;
+}
+
+div#taskList div.task.selected {
+	background-color: #FF8E3D;
+	border-radius: 10px;
+}
+
+div#taskList div.hiddenButton {
+	display: none;
+}
+
+div#appContainer div#footer {
+}
+
+div#appContainer div#infoBox {
+	position: relative;
+	width: 160px;
+	height: 20px;
+	border: solid 3px #000;
+	border-radius: 20px;
+	background-color: #fff;
+	margin: 10px 0;
+	padding: 10px;
+}

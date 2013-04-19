@@ -1,0 +1,41 @@
+div#appContainer {
+	position: relative;
+	width: 960px;
+	margin: 0 auto;
+	background-color: #999999;
+}
+
+div#appContainer div#header {
+	position: relative;
+	width: 960px;
+	height: 40px;
+	border-bottom: 1px solid #000000;
+}	
+
+div#appContainer div#header ul#navigation {
+	list-style-type: none;
+	height: 40px;
+}
+
+div#appContainer div#header ul#navigation li {
+	float: left;
+	margin-right: 20px;
+}
+
+div#appContainer div#content {
+	width: inherit;
+	min-height: 400px;
+	background-color: #000000;
+	color: #ffffff;
+}
+
+div#appContainer div#footer {
+	width: inherit;
+	height: 40px;
+}
+
+div#appContainer div#content table#taskList {
+	color: #ffffff;
+	width: inherit;
+	text-align: left;
+}
