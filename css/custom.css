@@ -2,7 +2,36 @@ body {
 	background-color: #576D7F;
 }
 
-div#appContainer {
+div#header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 9999;
+	background-color: #ddd;
+	padding: 0;
+}
+
+div#header #subHeader {
+	margin-left: 10px;
+}
+
+div#content {
+	padding-top: 10px;
+	padding-left: 10px;
+	background-color: #000;
+}
+
+div#navigation {
+	margin-top: 40px;
+}
+
+div#taskList {
+	position: relative;
+	top: 150px;
+	left: 0;
+	right: 0;
+	z-index: 0;
 }
 
 div#taskList div {
@@ -20,10 +49,10 @@ div#taskList div.hiddenButton {
 	display: none;
 }
 
-div#appContainer div#footer {
+div#footer {
 }
 
-div#appContainer div#infoBox {
+div#infoBox {
 	position: relative;
 	width: 160px;
 	height: 20px;

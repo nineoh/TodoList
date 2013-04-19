@@ -13,8 +13,8 @@
 		<script type="text/javascript" src="js/custom.js"></script>
 	</head>
 	<body>
-		<div id="appContainer" class="container-fluid">
-			<div id="header" class="row-fluid">
+		<div id="header" class="container-fluid">
+			<div id="subHeader" class="row-fluid">
 				<div class="span2"><div id="infoBox"></div></div>
 				<div class="span10">
 					<div id="navigation" class="row-fluid">
@@ -24,7 +24,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="row-fluid">
+			<div id="content" class="row-fluid">
 				<div class="span3">
 					<select id="prioSelect">
 						<option value="-1">Prio</option>
@@ -43,13 +43,12 @@
 					<input type="button" id="btnCreate" value="Create Task" />
 				</div>
 			</div>
+		</div>
+		<div id="taskList" class="container-fluid">
+		</div>
 
-			<div id="taskList" class="container-fluid">
-			</div>
-
-			<div id="footer" class="row-fluid">
-				<div class="offset5">&copy; by against-the-reality</div>
-			</div>
-		</div>	
+		<div id="footer" class="row-fluid">
+			<div class="offset5">&copy; by against-the-reality</div>
+		</div>
 	</body>
 </html>
