@@ -8,30 +8,61 @@ div#header {
 	left: 0;
 	right: 0;
 	z-index: 9999;
-	background-color: #ddd;
 	padding: 0;
 }
 
-div#header #subHeader {
-	margin-left: 10px;
-}
-
-div#content {
-	padding-top: 10px;
+div#header div#subHeader1 {
 	padding-left: 10px;
 	background-color: #000;
 }
 
-div#navigation {
+div#header div#subHeader1 div#infoBox {
+	position: relative;
+	width: 160px;
+	height: 20px;
+	border: solid 3px #000;
+	border-radius: 20px;
+	background-color: #fff;
+	margin: 10px 0;
+	padding: 10px;
+}
+
+div#header div#subHeader1 div#navigation {
 	margin-top: 40px;
+}
+
+div#header div#subHeader2 {
+	position: relative;
+	padding-top: 10px;
+	padding-left: 10px;
+	background-color: #000;
+	opacity: 0.8;
+	min-height: 10px;
+}
+
+.hiddenRow {
+	display: none;
+	opacity: 0;
+	/*min-height: 0;*/
+	/*line-height: 0;*/
+}
+
+div#content {
+	position: fixed;
+	top: 70px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	overflow: auto;
+	padding: 0;
 }
 
 div#taskList {
 	position: relative;
-	top: 150px;
+	top: 0;
 	left: 0;
 	right: 0;
-	z-index: 0;
+	margin: 60px 0 30px 0;
 }
 
 div#taskList div {
@@ -50,15 +81,9 @@ div#taskList div.hiddenButton {
 }
 
 div#footer {
+	position: fixed;
+	bottom: 0;
+	background-color: #000;
+	opacity: 0.8;
 }
 
-div#infoBox {
-	position: relative;
-	width: 160px;
-	height: 20px;
-	border: solid 3px #000;
-	border-radius: 20px;
-	background-color: #fff;
-	margin: 10px 0;
-	padding: 10px;
-}

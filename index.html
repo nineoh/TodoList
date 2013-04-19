@@ -14,41 +14,43 @@
 	</head>
 	<body>
 		<div id="header" class="container-fluid">
-			<div id="subHeader" class="row-fluid">
+			<div id="subHeader1" class="row-fluid">
 				<div class="span2"><div id="infoBox"></div></div>
-				<div class="span10">
-					<div id="navigation" class="row-fluid">
-						<div class="span1"><a href="index.html">Home</a></div>
-						<div class="span1"><a href="about.html">About</a></div>
-						<div class="span1"><a href="contact.html">Contact</a></div>
+				<div id="navigation" class="span10 row-fluid">
+					<div class="span1"><a href="index.html">Home</a></div>
+					<div class="span1"><a href="about.html">About</a></div>
+					<div class="span1"><a href="contact.html">Contact</a></div>
+				</div><!-- #navigation -->
+			</div><!-- #subHeader1 -->
+			<div id="subHeader2" class="container-fluid">
+				<div class="row-fluid hiddenRow">
+					<div class="span3">
+						<select id="prioSelect">
+							<option value="-1">Prio</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+						</select>
+					</div>
+					<div class="span3">
+						<input type="text" id="txtDate" placeholder="Date" />
+					</div>
+					<div class="span3">
+						<input type="text" id="txtTask" placeholder="Enter your Task" />
+					</div>
+					<div class="span3">
+						<input type="button" id="btnCreate" value="Create Task" />
 					</div>
 				</div>
-			</div>
-			<div id="content" class="row-fluid">
-				<div class="span3">
-					<select id="prioSelect">
-						<option value="-1">Prio</option>
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-					</select>
-				</div>
-				<div class="span3">
-					<input type="text" id="txtDate" placeholder="Date" />
-				</div>
-				<div class="span3">
-					<input type="text" id="txtTask" placeholder="Enter your Task" />
-				</div>
-				<div class="span3">
-					<input type="button" id="btnCreate" value="Create Task" />
-				</div>
-			</div>
-		</div>
-		<div id="taskList" class="container-fluid">
-		</div>
+			</div><!-- #subHeader2 -->
+		</div><!-- #header -->
+
+		<div id="content" class="container-fluid">
+			<div id="taskList" class="container-fluid"></div><!-- #taskList -->
+		</div><!-- #content -->
 
 		<div id="footer" class="row-fluid">
 			<div class="offset5">&copy; by against-the-reality</div>
-		</div>
+		</div><!-- #footer -->
 	</body>
 </html>
