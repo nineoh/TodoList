@@ -9,11 +9,13 @@ div#header {
 	right: 0;
 	z-index: 9999;
 	padding: 0;
+	opacity: 0.8;
 }
 
 div#header div#subHeader1 {
 	padding-left: 10px;
 	background-color: #000;
+	opacity: 0.8;
 }
 
 div#header div#subHeader1 div#infoBox {
@@ -43,8 +45,6 @@ div#header div#subHeader2 {
 .hiddenRow {
 	display: none;
 	opacity: 0;
-	/*min-height: 0;*/
-	/*line-height: 0;*/
 }
 
 div#content {
@@ -55,6 +55,7 @@ div#content {
 	bottom: 0;
 	overflow: auto;
 	padding: 0;
+	/*background-color: #0088CC;*/
 }
 
 div#taskList {
@@ -72,7 +73,8 @@ div#taskList div {
 }
 
 div#taskList div.task.selected {
-	background-color: #FF8E3D;
+	/*background-color: #FF8E3D;*/
+	background-color: #0088CC;
 	border-radius: 10px;
 }
 
@@ -84,6 +86,7 @@ div#footer {
 	position: fixed;
 	bottom: 0;
 	background-color: #000;
+	color: #fff;
 	opacity: 0.8;
 }
 

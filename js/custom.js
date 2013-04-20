@@ -32,8 +32,19 @@ yearSuffix: ''};
 		});
 	}
 
+	//var hideCreateTaskBar = function () {
+		//$(this).children().fadeTo(300, 0.0, function() {
+			//$(this).slideUp(300, function () {
+				//$(this).stop();
+			//});
+		//});
+	//}
+
 	var hideCreateTaskBar = function () {
-		$(this).children().fadeTo(300, 0.0, function() {
+		if ($('div#subHeader2').children().css('opacity') == 0.0)
+			return;
+
+		$('div#subHeader2').children().fadeTo(300, 0.0, function() {
 			$(this).slideUp(300, function () {
 				$(this).stop();
 			});
@@ -87,7 +98,8 @@ yearSuffix: ''};
 	});
 
 
-	$('div#subHeader2').hover(showCreateTaskBar, hideCreateTaskBar);
+	$('div#subHeader2').hover(showCreateTaskBar/*, hideCreateTaskBar*/);
+	$('div#content').click(hideCreateTaskBar);
 	$('div#taskList').on('mouseover', 'div.task', highlightRow);
 	$('div#taskList').on('mouseleave', 'div.task', unhighlightRow);
 
