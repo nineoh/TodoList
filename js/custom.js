@@ -59,8 +59,7 @@ $(function() {
 	};
 
 	var isValid = function () {
-		// TODO: highlight invalid input fields with a glowing red border!
-		$('div.hiddenRow').children().children('select, input').removeClass('errorFocus');
+		//$('div.hiddenRow').children().children('select, input').removeClass('errorFocus');
 		var isValid = true;
 		if ($('#prioSelect').val() == -1) {
 			$('#prioSelect').addClass('errorFocus');
@@ -120,6 +119,10 @@ $(function() {
 	 */
 	$('#taskList').on('click', '.deleteButton', function () {
 		$(this).parent().remove();
+	});
+
+	$('div.hiddenRow').children().children('select, input').change(function () {
+		$(this).removeClass('errorFocus');
 	});
 
 });
