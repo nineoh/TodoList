@@ -1,45 +1,34 @@
 $(function() {
+
 	/*
-	 * Activate date picker
+	 * DatePicker configuration and activation.
 	 */
 	$.datepicker.regional['de-CH'] = {
 		closeText: 'schliessen',
-prevText: '&#x3c;zurück',
-nextText: 'nächster&#x3e;',
-currentText: 'heute',
-monthNames: ['Januar','Februar','März','April','Mai','Juni', 'Juli','August','September','Oktober','November','Dezember'],
-monthNamesShort: ['Jan','Feb','Mär','Apr','Mai','Jun','Jul','Aug','Sep','Okt','Nov','Dez'],
-dayNames: ['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'],
-dayNamesShort: ['So','Mo','Di','Mi','Do','Fr','Sa'],
-dayNamesMin: ['So','Mo','Di','Mi','Do','Fr','Sa'],
-weekHeader: 'Wo',
-dateFormat: 'dd.mm.yy',
-firstDay: 1,
-isRTL: false,
-showMonthAfterYear: false,
-yearSuffix: ''
+		prevText: '&#x3c;zurück',
+		nextText: 'nächster&#x3e;',
+		currentText: 'heute',
+		monthNames: ['Januar','Februar','März','April','Mai','Juni', 'Juli','August','September','Oktober','November','Dezember'],
+		monthNamesShort: ['Jan','Feb','Mär','Apr','Mai','Jun','Jul','Aug','Sep','Okt','Nov','Dez'],
+		dayNames: ['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'],
+		dayNamesShort: ['So','Mo','Di','Mi','Do','Fr','Sa'],
+		dayNamesMin: ['So','Mo','Di','Mi','Do','Fr','Sa'],
+		weekHeader: 'Wo',
+		dateFormat: 'dd.mm.yy',
+		firstDay: 1,
+		isRTL: false,
+		showMonthAfterYear: false,
+		yearSuffix: ''
 	};
 	$.datepicker.setDefaults($.datepicker.regional['de-CH']);
-
 	$('#txtDate').datepicker();
 
-	/*
-	 * Create hover effect
-	 */
 	var showCreateTaskBar = function () {
 		$(this).children().slideDown(300, function() {
 			$(this).fadeTo(300, 1.0);
 			$(this).stop();
 		});
 	}
-
-	//var hideCreateTaskBar = function () {
-	//$(this).children().fadeTo(300, 0.0, function() {
-	//$(this).slideUp(300, function () {
-	//$(this).stop();
-	//});
-	//});
-	//}
 
 	var hideCreateTaskBar = function () {
 		if ($('div#subHeader2').children().css('opacity') == 0.0)
@@ -89,14 +78,7 @@ yearSuffix: ''
 		return isValid;
 	};
 
-	/*
-	 * Delete button click
-	 */
-	$('#taskList').on('click', '.deleteButton', function() {
-		$(this).parent().remove();
-	});
-
-	function createNewTask() {
+	var createNewTask = function () {
 		var prio = $('#prioSelect').val();
 		var date = $('#txtDate').val();
 		var task = $('#txtTask').val();
@@ -104,33 +86,40 @@ yearSuffix: ''
 		$('#taskList').prepend('<div class="row-fluid task"><div class="span3">' + prio + '</div><div class="span3">' + date + '</div><div class="span3 taskText">' + task + '</div><div class="span1 offset2 deleteButton hiddenButton"><input type="button" value="X" /></div></div>');
 	}
 
-	function clearInputFields() {
+	var clearInputFields = function () {
 		$('#prioSelect').val('-1');
 		$('#txtDate').val('');
 		$('#txtTask').val('');
 	}
-
-	/*
-	 * Create task on button click
-	 */
-	$('#btnCreate').click(function(){
-		if (!isValid())
-		return;
-
-	createNewTask();
-	clearInputFields();
-	});
-
-
-	$('div#subHeader2').hover(showCreateTaskBar/*, hideCreateTaskBar*/);
-	$('div#content').click(hideCreateTaskBar);
-	$('div#taskList').on('mouseover', 'div.task', highlightRow);
-	$('div#taskList').on('mouseleave', 'div.task', unhighlightRow);
 
 	var createMockTasks = function () {
 		for (var i = 0; i < 30; i++) {
 			$('#taskList').prepend('<div class="row-fluid task"><div class="span3">1</div><div class="span3">25.05.2013</div><div class="span3 taskText">Sample Task #'+i+'</div><div class="span1 offset2 deleteButton hiddenButton"><input type="button" value="X" /></div></div>');
 		}
 	};
+
+	$('div#subHeader2').hover(showCreateTaskBar);
+	$('div#content').click(hideCreateTaskBar);
+	$('div#taskList').on('mouseover', 'div.task', highlightRow);
+	$('div#taskList').on('mouseleave', 'div.task', unhighlightRow);
 	$('div#footer').click(createMockTasks);
+
+	/*
+	 * Create task on button click
+	 */
+	$('#btnCreate').click(function () {
+		if (!isValid())
+			return;
+
+		createNewTask();
+		clearInputFields();
+	});
+
+	/*
+	 * Delete button click
+	 */
+	$('#taskList').on('click', '.deleteButton', function () {
+		$(this).parent().remove();
+	});
+
 });
