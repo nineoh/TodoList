@@ -82,8 +82,9 @@ div#taskList div.task {
 
 div#taskList div.task.selected {
 	/*background-color: #0088CC;*/
+	border-color: #0088CC;
 	border-radius: 10px;
-	box-shadow: 0 0 10px #0088CC;
+	box-shadow: 0 0 10px 10px #0088CC;
 	-webkit-box-shadow: 0 0 10px #0088CC; 
 	-moz-box-shadow: 0 0 10px #0088CC;
 }
