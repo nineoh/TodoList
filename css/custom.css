@@ -62,7 +62,6 @@ div#content {
 	bottom: 0;
 	overflow: auto;
 	padding: 0;
-	/*background-color: #0088CC;*/
 }
 
 div#taskList {
@@ -81,7 +80,6 @@ div#taskList div.task {
 }
 
 div#taskList div.task.selected {
-	/*background-color: #0088CC;*/
 	border-color: #0088CC;
 	border-radius: 10px;
 	box-shadow: 0 0 10px 10px #0088CC;
