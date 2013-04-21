@@ -64,6 +64,7 @@ div#content {
 }
 
 div#taskList {
+	font-family: "Comic Sans MS", cursive, sans-serif;
 	position: relative;
 	top: 0;
 	left: 0;
