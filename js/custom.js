@@ -17,7 +17,8 @@ dateFormat: 'dd.mm.yy',
 firstDay: 1,
 isRTL: false,
 showMonthAfterYear: false,
-yearSuffix: ''};
+yearSuffix: ''
+	};
 	$.datepicker.setDefaults($.datepicker.regional['de-CH']);
 
 	$('#txtDate').datepicker();
@@ -33,11 +34,11 @@ yearSuffix: ''};
 	}
 
 	//var hideCreateTaskBar = function () {
-		//$(this).children().fadeTo(300, 0.0, function() {
-			//$(this).slideUp(300, function () {
-				//$(this).stop();
-			//});
-		//});
+	//$(this).children().fadeTo(300, 0.0, function() {
+	//$(this).slideUp(300, function () {
+	//$(this).stop();
+	//});
+	//});
 	//}
 
 	var hideCreateTaskBar = function () {
@@ -57,7 +58,7 @@ yearSuffix: ''};
 		// Show delete button
 		$(this).children('.deleteButton').removeClass('hiddenButton');
 		// Show Task in info box
-		$('#infoBox').text($(this).children('.task').text());
+		$('#infoBox').text($(this).children('.taskText').text());
 	};
 
 	var unhighlightRow = function () {
@@ -66,6 +67,26 @@ yearSuffix: ''};
 		$(this).children('.deleteButton').addClass('hiddenButton');
 		// Empty info box
 		$('#infoBox').text('');
+	};
+
+	var isValid = function () {
+		// TODO: highlight invalid input fields with a glowing red border!
+		$('div.hiddenRow').children().children('select, input').removeClass('errorFocus');
+		var isValid = true;
+		if ($('#prioSelect').val() == -1) {
+			$('#prioSelect').addClass('errorFocus');
+			isValid = false;
+		}
+		if ($('#txtDate').val() == '') {
+			$('#txtDate').addClass('errorFocus');
+			isValid = false;
+		}
+		if ($('#txtTask').val() == '') {
+			$('#txtTask').addClass('errorFocus');
+			isValid = false;
+		}
+
+		return isValid;
 	};
 
 	/*
@@ -80,7 +101,7 @@ yearSuffix: ''};
 		var date = $('#txtDate').val();
 		var task = $('#txtTask').val();
 
-		$('#taskList').prepend('<div class="row-fluid task"><div class="span3">' + prio + '</div><div class="span3">' + date + '</div><div class="span3 task">' + task + '</div><div class="span1 offset2 deleteButton hiddenButton"><input type="button" value="X" /></div></div>');
+		$('#taskList').prepend('<div class="row-fluid task"><div class="span3">' + prio + '</div><div class="span3">' + date + '</div><div class="span3 taskText">' + task + '</div><div class="span1 offset2 deleteButton hiddenButton"><input type="button" value="X" /></div></div>');
 	}
 
 	function clearInputFields() {
@@ -93,8 +114,11 @@ yearSuffix: ''};
 	 * Create task on button click
 	 */
 	$('#btnCreate').click(function(){
-		createNewTask();
-		clearInputFields();
+		if (!isValid())
+		return;
+
+	createNewTask();
+	clearInputFields();
 	});
 
 
@@ -103,5 +127,10 @@ yearSuffix: ''};
 	$('div#taskList').on('mouseover', 'div.task', highlightRow);
 	$('div#taskList').on('mouseleave', 'div.task', unhighlightRow);
 
-
+	var createMockTasks = function () {
+		for (var i = 0; i < 30; i++) {
+			$('#taskList').prepend('<div class="row-fluid task"><div class="span3">1</div><div class="span3">25.05.2013</div><div class="span3 taskText">Sample Task #'+i+'</div><div class="span1 offset2 deleteButton hiddenButton"><input type="button" value="X" /></div></div>');
+		}
+	};
+	$('div#footer').click(createMockTasks);
 });

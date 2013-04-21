@@ -42,6 +42,13 @@ div#header div#subHeader2 {
 	min-height: 10px;
 }
 
+select.errorFocus,
+input.errorFocus {
+	box-shadow: 0 0 10px #f00;
+	-webkit-box-shadow: 0 0 10px #f00; 
+	-moz-box-shadow: 0 0 10px #f00;
+}
+
 .hiddenRow {
 	display: none;
 	opacity: 0;
@@ -66,16 +73,19 @@ div#taskList {
 	margin: 60px 0 30px 0;
 }
 
-div#taskList div {
+div#taskList div.task {
 	color: #fff;
-	padding-top:2px;
+	padding-top:10px;
 	padding-left:5px;
+	border-bottom: 1px solid #000;
 }
 
 div#taskList div.task.selected {
-	/*background-color: #FF8E3D;*/
-	background-color: #0088CC;
+	/*background-color: #0088CC;*/
 	border-radius: 10px;
+	box-shadow: 0 0 10px #0088CC;
+	-webkit-box-shadow: 0 0 10px #0088CC; 
+	-moz-box-shadow: 0 0 10px #0088CC;
 }
 
 div#taskList div.hiddenButton {
