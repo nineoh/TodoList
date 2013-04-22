@@ -47,7 +47,11 @@ $(function() {
 		// Show delete button
 		$(this).children('.deleteButton').removeClass('hiddenButton');
 		// Show Task in info box
-		$('#infoBox').text($(this).children('.taskText').text());
+		var text = $(this).children('.taskText').text();
+		if (text.length > 16)
+			text = text.substring(0, 15) + "...";
+
+		$('#infoBox').text(text);
 	};
 
 	var unhighlightRow = function () {
@@ -92,8 +96,18 @@ $(function() {
 	}
 
 	var createMockTasks = function () {
+		var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+		//var text = '';
+			
 		for (var i = 0; i < 30; i++) {
-			$('#taskList').prepend('<div class="row-fluid task"><div class="span3">1</div><div class="span3">25.05.2013</div><div class="span3 taskText">Sample Task #'+i+'</div><div class="span1 offset2 deleteButton hiddenButton"><input type="button" value="X" /></div></div>');
+			var text = '';
+			var len = Math.floor((Math.random()*20)+1); 
+			
+			for (var j = 0; j < len; j++) {
+				text += possible.charAt(Math.floor(Math.random() * possible.length));
+			}
+
+			$('#taskList').prepend('<div class="row-fluid task"><div class="span3">1</div><div class="span3">25.05.2013</div><div class="span3 taskText">'+ text +'</div><div class="span1 offset2 deleteButton hiddenButton"><input type="button" value="X" /></div></div>');
 		}
 	};
 

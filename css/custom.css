@@ -9,12 +9,12 @@ div#header {
 	right: 0;
 	z-index: 9999;
 	padding: 0;
+	background: url("../img/transparent_bg.png") repeat scroll 0 0 transparent;
 }
 
 div#header div#subHeader1 {
 	padding-left: 10px;
-	background-color: #000;
-	opacity: 0.8;
+	background-color: #1A2026;
 }
 
 div#header div#subHeader1 div#infoBox {
@@ -36,16 +36,17 @@ div#header div#subHeader2 {
 	position: relative;
 	padding-top: 10px;
 	padding-left: 10px;
-	background-color: #000;
-	opacity: 0.8;
 	min-height: 10px;
+	box-shadow: 0 0 15px 10px #1A2026 inset;
+	-webkit-box-shadow: 0 0 15px 10px #1A2026 inset;
+	-moz-box-shadow: 0 0 15px 10px #1A2026 inset;
 }
 
 select.errorFocus,
 input.errorFocus {
-	box-shadow: 0 0 10px #f00;
-	-webkit-box-shadow: 0 0 10px #f00; 
-	-moz-box-shadow: 0 0 10px #f00;
+	box-shadow: 0 0 15px #f00;
+	-webkit-box-shadow: 0 0 15px #f00; 
+	-moz-box-shadow: 0 0 15px #f00;
 }
 
 .hiddenRow {
@@ -96,6 +97,6 @@ div#footer {
 	bottom: 0;
 	background-color: #000;
 	color: #fff;
-	opacity: 0.8;
+	background: url("../img/transparent_bg.png") repeat scroll 0 0 transparent;
 }
 
