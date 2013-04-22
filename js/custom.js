@@ -1,4 +1,5 @@
 $(function() {
+	var activeTheme = '#08C';
 
 	/*
 	 * DatePicker configuration and activation.
@@ -42,7 +43,10 @@ $(function() {
 	}
 
 	var highlightRow = function () {
-		$(this).addClass('selected');
+		//$(this).addClass('selected');
+		$(this).css('box-shadow', '0 0 10px 10px ' + activeTheme);
+		$(this).css('border-color', activeTheme);
+		$(this).css('border-radius', '10px');
 
 		// Show delete button
 		$(this).children('.deleteButton').removeClass('hiddenButton');
@@ -55,7 +59,10 @@ $(function() {
 	};
 
 	var unhighlightRow = function () {
-		$(this).removeClass('selected');
+		//$(this).removeClass('selected');
+		$(this).css('box-shadow', 'none');
+		$(this).css('border-color', '#000');
+		$(this).css('border-radius', '');
 		// Hide delete button
 		$(this).children('.deleteButton').addClass('hiddenButton');
 		// Empty info box
@@ -63,7 +70,6 @@ $(function() {
 	};
 
 	var isValid = function () {
-		//$('div.hiddenRow').children().children('select, input').removeClass('errorFocus');
 		var isValid = true;
 		if ($('#prioSelect').val() == -1) {
 			$('#prioSelect').addClass('errorFocus');
@@ -95,6 +101,12 @@ $(function() {
 		$('#txtTask').val('');
 	}
 
+	var changeTheme = function(themeColor) {
+		activeTheme = themeColor;
+		$('div#header div#subHeader1 div#navigation a, div#header div#subHeader1 div#navigation a:visited').css('color', themeColor);
+		$('div#themeSelection div').css('box-shadow', 'none');
+	};
+
 	var createMockTasks = function () {
 		var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 		//var text = '';
@@ -116,6 +128,21 @@ $(function() {
 	$('div#taskList').on('mouseover', 'div.task', highlightRow);
 	$('div#taskList').on('mouseleave', 'div.task', unhighlightRow);
 	$('div#footer').click(createMockTasks);
+	$('div#themeSelection div.blueTheme').click(function () {
+		changeTheme('#08C');
+	});
+	$('div#themeSelection div.pinkTheme').click(function () {
+		changeTheme('#F0F');
+	});
+	$('div#themeSelection div.greenTheme').click(function () {
+		changeTheme('#0F0');
+	});
+	$('div#themeSelection div').hover(function () {
+		$(this).css('cursor', 'pointer');
+		$(this).css('box-shadow', '0 0 10px 10px ' + $(this).css('background-color'));
+	}, function () {
+		$(this).css('box-shadow', 'none');
+	});
 
 	/*
 	 * Create task on button click

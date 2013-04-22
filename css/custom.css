@@ -32,6 +32,29 @@ div#header div#subHeader1 div#navigation {
 	margin-top: 40px;
 }
 
+div#header div#subHeader1 div#navigation a,
+div#header div#subHeader1 div#navigation a:visited {
+	color: #0088CC;
+}
+
+div#header div#subHeader1 div#themeSelection div {
+	position: relative;
+	width: 10px;
+	height: 10px;
+}
+
+div#themeSelection div.blueTheme {
+	background-color: #0088CC;
+}
+
+div#themeSelection div.pinkTheme {
+	background-color: #F0F;
+}
+
+div#themeSelection div.greenTheme {
+	background-color: #0F0;
+}
+
 div#header div#subHeader2 {
 	position: relative;
 	padding-top: 10px;
