@@ -1,61 +1,63 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>TODOs</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="css/bootstrap.css" />
-		<link rel="stylesheet" href="assets/css/bootstrap-responsive.css" />
-		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
-		<link rel="stylesheet" href="css/custom.css" />
-		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
-		<script type="text/javascript" src="js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
-		<script type="text/javascript" src="js/custom.js"></script>
-	</head>
-	<body>
-		<div id="header" class="container-fluid">
-			<div id="subHeader1" class="row-fluid">
-				<div class="span2"><div id="infoBox"></div></div>
-				<div id="navigation" class="span8 row-fluid">
-					<div class="span1"><a href="index.html">Home</a></div>
-					<div class="span1"><a href="about.html">About</a></div>
-					<div class="span1"><a href="contact.html">Contact</a></div>
-				</div><!-- #navigation -->
-				<div id="themeSelection" class="span2 row-fluid">
-					<div class="span1 blueTheme"></div>
-					<div class="span1 offset1 pinkTheme"></div>
-					<div class="span1 offset1 greenTheme"></div>
-				</div><!-- #themeSelection -->
-			</div><!-- #subHeader1 -->
-			<div id="subHeader2" class="container-fluid">
-				<div class="row-fluid hiddenRow">
-					<div class="span3">
-						<select id="prioSelect">
-							<option value="-1">Prio</option>
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-						</select>
-					</div>
-					<div class="span3">
-						<input type="text" id="txtDate" placeholder="Date" />
-					</div>
-					<div class="span3">
-						<input type="text" id="txtTask" placeholder="Enter your Task" />
-					</div>
-					<div class="span3">
-						<input type="button" id="btnCreate" value="Create Task" />
-					</div>
+<head>
+	<title>TODOs</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+	<!-- <link rel="stylesheet" href="css/bootstrap-responsive.min.css" type="text/css" /> -->
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" type="text/css" />
+	<link rel="stylesheet" href="css/jquery.mCustomScrollbar.css" type="text/css" />
+	<link rel="stylesheet" href="css/custom.css" type="text/css" />
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+	<script type="text/javascript" src="js/modernizr.custom.21060.js"></script>
+	<script type="text/javascript" src="js/custom.js"></script>
+</head>
+<body>
+	<div id="header" class="container-fluid">
+		<div id="subHeader1" class="row-fluid">
+			<div class="span2"><div id="infoBox"></div></div>
+			<div id="navigation" class="span8 row-fluid">
+				<div class="span1"><a href="index.html">Home</a></div>
+				<div class="span1"><a href="about.html">About</a></div>
+				<div class="span1"><a href="contact.html">Contact</a></div>
+			</div><!-- #navigation -->
+			<div id="themeSelection" class="span2 row-fluid">
+				<div class="span1 blueTheme"></div>
+				<div class="span1 offset1 pinkTheme"></div>
+				<div class="span1 offset1 greenTheme"></div>
+			</div><!-- #themeSelection -->
+		</div><!-- #subHeader1 -->
+		<div id="subHeader2" class="container-fluid">
+			<div class="row-fluid hiddenRow">
+				<div class="span3">
+					<select id="prioSelect">
+						<option value="-1">Prio</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+					</select>
 				</div>
-			</div><!-- #subHeader2 -->
-		</div><!-- #header -->
+				<div class="span3">
+					<input type="text" id="txtDate" placeholder="Date" />
+				</div>
+				<div class="span3">
+					<input type="text" id="txtTask" placeholder="Enter your Task" />
+				</div>
+				<div class="span3">
+					<input type="button" id="btnCreate" value="Create Task" />
+				</div>
+			</div>
+		</div><!-- #subHeader2 -->
+	</div><!-- #header -->
 
-		<div id="content" class="container-fluid">
-			<div id="taskList" class="container-fluid"></div><!-- #taskList -->
-		</div><!-- #content -->
+	<div id="content" class="container-fluid">
+		<div id="taskList" class="container-fluid"></div><!-- #taskList -->
+	</div><!-- #content -->
 
-		<div id="footer" class="row-fluid">
-			<div class="offset5">&copy; by against-the-reality</div>
-		</div><!-- #footer -->
-	</body>
+	<div id="footer" class="row-fluid">
+		<div class="offset5">&copy; by against-the-reality</div>
+	</div><!-- #footer -->
+</body>
 </html>
