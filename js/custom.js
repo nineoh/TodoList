@@ -1,8 +1,12 @@
 var activeTheme = '';
 
 var initPage = function () {
-	activeTheme = localStorage.getItem('theme') != null ? localStorage['theme'] : '#08C';
+	// Load theme
+	activeTheme = localStorage['theme'] != null ? localStorage['theme'] : '#08C';
 	changeTheme(activeTheme);
+
+	// TODO: Load Tasks
+	
 }
 
 var showCreateTaskBar = function () {
@@ -74,6 +78,8 @@ var createNewTask = function () {
 	var task = $('#txtTask').val();
 
 	$('#taskList').prepend('<div class="row-fluid task"><div class="span3">' + prio + '</div><div class="span3">' + date + '</div><div class="span3 taskText">' + task + '</div><div class="span1 offset2 deleteButton hiddenButton"><input type="button" value="X" /></div></div>');
+
+	// TODO: store task into localStorage
 }
 
 var clearInputFields = function () {
