@@ -115,6 +115,12 @@ div#taskList div.hiddenButton {
 	display: none;
 }
 
+div#taskList div.deleteButton input {
+	background: url("../img/delete_25x25.png") no-repeat;
+	border: none;
+	width: 25px;
+}
+
 div#footer {
 	position: fixed;
 	bottom: 0;

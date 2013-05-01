@@ -77,7 +77,7 @@ var createNewTask = function () {
 	var date = $('#txtDate').val();
 	var task = $('#txtTask').val();
 
-	$('#taskList').prepend('<div class="row-fluid task"><div class="span3">' + prio + '</div><div class="span3">' + date + '</div><div class="span3 taskText">' + task + '</div><div class="span1 offset2 deleteButton hiddenButton"><input type="button" value="X" /></div></div>');
+	$('#taskList').prepend('<div class="row-fluid task"><div class="span3">' + prio + '</div><div class="span3">' + date + '</div><div class="span3 taskText">' + task + '</div><div class="span1 offset2 deleteButton hiddenButton"><input type="button" /></div></div>');
 
 	// TODO: store task into localStorage
 }
@@ -119,7 +119,7 @@ var createMockTasks = function () {
 			text += possible.charAt(Math.floor(Math.random() * possible.length));
 		}
 
-		$('#taskList').prepend('<div class="row-fluid task"><div class="span3">1</div><div class="span3">25.05.2013</div><div class="span3 taskText">'+ text +'</div><div class="span1 offset2 deleteButton hiddenButton"><input type="button" value="X" /></div></div>');
+		$('#taskList').prepend('<div class="row-fluid task"><div class="span3">1</div><div class="span3">25.05.2013</div><div class="span3 taskText">'+ text +'</div><div class="span1 offset2 deleteButton hiddenButton"><input type="button" /></div></div>');
 	}
 };
 
