@@ -34,6 +34,7 @@ var highlightRow = function () {
 	$(this).css('border-radius', '10px');
 
 	// Show delete button
+	$(this).children('.doneButton').removeClass('hiddenButton');
 	$(this).children('.deleteButton').removeClass('hiddenButton');
 	// Show Task in info box
 	var text = $(this).children('.taskText').text();
@@ -49,6 +50,7 @@ var unhighlightRow = function () {
 	$(this).css('border-color', '#000');
 	$(this).css('border-radius', '');
 	// Hide delete button
+	$(this).children('.doneButton').addClass('hiddenButton');
 	$(this).children('.deleteButton').addClass('hiddenButton');
 	// Empty info box
 	$('#infoBox').text('');
@@ -56,6 +58,7 @@ var unhighlightRow = function () {
 
 var isValid = function () {
 	var isValid = true;
+
 	if ($('#prioSelect').val() == -1) {
 		$('#prioSelect').addClass('errorFocus');
 		isValid = false;
@@ -77,7 +80,7 @@ var createNewTask = function () {
 	var date = $('#txtDate').val();
 	var task = $('#txtTask').val();
 
-	$('#taskList').prepend('<div class="row-fluid task"><div class="span3">' + prio + '</div><div class="span3">' + date + '</div><div class="span3 taskText">' + task + '</div><div class="span1 offset2 deleteButton hiddenButton"><input type="button" /></div></div>');
+	$('#taskList').prepend('<div class="row-fluid task"><div class="span1">' + prio + '</div><div class="span2">' + date + '</div><div class="span2 taskText">' + task + '</div><div class="span1 offset5 doneButton hiddenButton"><input type="button" /></div><div class="span1 deleteButton hiddenButton"><input type="button" /></div></div>');
 
 	// TODO: store task into localStorage
 }
@@ -119,7 +122,7 @@ var createMockTasks = function () {
 			text += possible.charAt(Math.floor(Math.random() * possible.length));
 		}
 
-		$('#taskList').prepend('<div class="row-fluid task"><div class="span3">1</div><div class="span3">25.05.2013</div><div class="span3 taskText">'+ text +'</div><div class="span1 offset2 deleteButton hiddenButton"><input type="button" /></div></div>');
+		$('#taskList').prepend('<div class="row-fluid task"><div class="span1">1</div><div class="span2">25.05.2013</div><div class="span2 taskText">'+ text +'</div><div class="span1 offset5 doneButton hiddenButton"><input type="button" /></div><div class="span1 deleteButton hiddenButton"><input type="button" /></div></div>');
 	}
 };
 
@@ -181,6 +184,13 @@ $(function() {
 
 		createNewTask();
 		clearInputFields();
+	});
+
+	/*
+	 * Mark tas as done
+	 */
+	$('#taskList').on('click', '.doneButton', function () {
+		$(this).parent().toggleClass('done');
 	});
 
 	/*

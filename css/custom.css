@@ -1,5 +1,5 @@
 body {
-	background-color: #576D7F;
+	background: url("../img/bg.png") no-repeat;
 }
 
 div#header {
@@ -65,6 +65,10 @@ div#header div#subHeader2 {
 	-moz-box-shadow: 0 0 15px 10px #1A2026 inset;
 }
 
+div#header div#subHeader2 input,
+div#header div#subHeader2 select {
+	width: auto;
+}
 select.errorFocus,
 input.errorFocus {
 	box-shadow: 0 0 15px #f00;
@@ -85,6 +89,8 @@ div#content {
 	bottom: 0;
 	overflow: auto;
 	padding: 0;
+	background-color: #576D7F;
+	opacity: 0.8;
 }
 
 div#taskList {
@@ -115,9 +121,30 @@ div#taskList div.hiddenButton {
 	display: none;
 }
 
+div#taskList .done div {
+	text-decoration: line-through;
+	color: #999;
+}
+
+div#taskList div.doneButton input {
+	background: url("../img/tick.png") no-repeat;
+/*	filter: grayscale(100%);
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+*/	border: none;
+	width: 25px;
+}
+
 div#taskList div.deleteButton input {
 	background: url("../img/delete_25x25.png") no-repeat;
-	border: none;
+/*	filter: grayscale(100%);
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+*/	border: none;
 	width: 25px;
 }
 
