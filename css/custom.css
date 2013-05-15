@@ -1,5 +1,6 @@
 body {
-	background: url("../img/bg.png") no-repeat;
+	/*background: url("../img/bg.png") no-repeat;*/
+	background: url(../img/page_bg.png) repeat;
 }
 
 div#header {
@@ -89,7 +90,7 @@ div#content {
 	bottom: 0;
 	overflow: auto;
 	padding: 0;
-	background-color: #576D7F;
+	/*background-color: #576D7F;*/
 	opacity: 0.8;
 }
 
