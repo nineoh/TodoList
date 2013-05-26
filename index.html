@@ -11,6 +11,7 @@
 	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+	<script type='text/javascript' src='js/knockout-2.2.1.js'></script>
 	<script type="text/javascript" src="js/modernizr.custom.21060.js"></script>
 	<script type="text/javascript" src="js/custom.js"></script>
 </head>
@@ -32,7 +33,7 @@
 		<div id="subHeader2" class="container-fluid">
 			<div class="row-fluid hiddenRow">
 				<div class="span1">
-					<select id="prioSelect">
+					<select id="prioSelect" data-bind="value: newTaskPrio">
 						<option value="-1">Prio</option>
 						<option value="1">1</option>
 						<option value="2">2</option>
@@ -40,24 +41,36 @@
 					</select>
 				</div>
 				<div class="span2">
-					<input type="text" id="txtDate" placeholder="Date" />
+					<input type="text" id="txtDate" placeholder="Date" data-bind="value: newTaskDate" />
 				</div>
 				<div class="span2">
-					<input type="text" id="txtTask" placeholder="Enter your Task" />
+					<input type="text" id="txtTask" placeholder="Enter your Task" data-bind="value: newTaskText" />
 				</div>
 				<div class="span2">
-					<input type="button" id="btnCreate" value="Create Task" />
+					<input type="button" id="btnCreate" value="Create Task" data-bind="click: addTask" />
 				</div>
 			</div>
 		</div><!-- #subHeader2 -->
 	</div><!-- #header -->
 
 	<div id="content" class="container-fluid">
-		<div id="taskList" class="container-fluid"></div><!-- #taskList -->
+		<div id="taskList" class="container-fluid" data-bind="foreach: tasks">
+			<div class="row-fluid task" data-bind="attr: { 'class': $parent.cssClass($data) + ' row-fluid task' }">
+				<div class="span1" data-bind="text: prio"></div>
+				<div class="span2" data-bind="text: date"></div>
+				<div class="span2 taskText" data-bind="text: title"></div>
+				<div class="span1 offset5 doneButton hiddenButton">
+					<input type="checkbox" data-bind="checked: isDone, event: { change: $parent.storeAllTasks }" />
+				</div>
+				<div class="span1 deleteButton hiddenButton">
+					<input type="button" data-bind="click: $parent.removeTask" />
+				</div>
+			</div>
+		</div><!-- #taskList -->
 	</div><!-- #content -->
 
 	<div id="footer" class="row-fluid">
-		<div class="offset5">&copy; by Against The Reality</div>
+		<div class="offset5">&copy; 2013 by Against The Reality</div>
 	</div><!-- #footer -->
 </body>
 </html>
