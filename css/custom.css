@@ -15,7 +15,7 @@ div#header {
 
 div#header div#subHeader1 {
 	padding-left: 10px;
-	background-color: #1A2026;
+	/*background-color: #1A2026;*/
 }
 
 div#header div#subHeader1 div#infoBox {
@@ -61,15 +61,31 @@ div#header div#subHeader2 {
 	padding-top: 10px;
 	padding-left: 10px;
 	min-height: 10px;
-	box-shadow: 0 0 15px 10px #1A2026 inset;
+/*	box-shadow: 0 0 15px 10px #1A2026 inset;
 	-webkit-box-shadow: 0 0 15px 10px #1A2026 inset;
 	-moz-box-shadow: 0 0 15px 10px #1A2026 inset;
-}
+*/}
 
 div#header div#subHeader2 input,
 div#header div#subHeader2 select {
 	width: auto;
 }
+
+div#header div#subHeader2 div#prioSelectDiv,
+div#header div#subHeader2 div#prioSelectDiv select {
+	min-width: 60px;
+}
+
+div#header div#subHeader2 div#dateDiv,
+div#header div#subHeader2 div#dateDiv input {
+	max-width: 90%;
+}
+
+div#header div#subHeader2 div#taskDiv,
+div#header div#subHeader2 div#taskDiv input {
+	max-width: 90%;
+}
+
 select.errorFocus,
 input.errorFocus {
 	box-shadow: 0 0 15px #f00;
@@ -107,7 +123,27 @@ div#taskList div.task {
 	color: #fff;
 	padding-top:10px;
 	padding-left:5px;
-	border-bottom: 1px solid #000;
+	border-bottom: 1px solid #fff;
+}
+
+div#taskList div.task div.prioText {
+	min-width: 40px;
+}
+
+div#taskList div.task div.dateText {
+	min-width: 100px;
+}
+
+div#taskList div.task div.taskText {
+	/*min-width: 100px;*/
+}
+
+div#taskList div.task div.doneButton {
+	min-width: 10px;
+}
+
+div#taskList div.task div.deleteButton {
+	/*margin-left: 20%;*/
 }
 
 div#taskList div.task.selected {
@@ -129,23 +165,13 @@ div#taskList .done div {
 
 div#taskList div.doneButton input {
 	background: url("../img/tick.png") no-repeat;
-/*	filter: grayscale(100%);
-	-webkit-filter: grayscale(100%);
-	-moz-filter: grayscale(100%);
-	-ms-filter: grayscale(100%);
-	-o-filter: grayscale(100%);
-*/	border: none;
+	border: none;
 	width: 25px;
 }
 
 div#taskList div.deleteButton input {
 	background: url("../img/delete_25x25.png") no-repeat;
-/*	filter: grayscale(100%);
-	-webkit-filter: grayscale(100%);
-	-moz-filter: grayscale(100%);
-	-ms-filter: grayscale(100%);
-	-o-filter: grayscale(100%);
-*/	border: none;
+	border: none;
 	width: 25px;
 }
 

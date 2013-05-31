@@ -27,7 +27,6 @@ $(function() {
 	 $('div#content').click(hideCreateTaskBar);
 	 $('div#taskList').on('mouseover', 'div.task', highlightRow);
 	 $('div#taskList').on('mouseleave', 'div.task', unhighlightRow);
-	 $('div#taskList').on('change', 'div.task div.doneButton input', markAsDone);
 	 $('div#themeSelection div.blueTheme').click(function () {
 	 	changeTheme('#08C');
 	 });
@@ -43,11 +42,15 @@ $(function() {
 	 }, function () {
 	 	$(this).css('box-shadow', 'none');
 	 });
-
 	 $('div.hiddenRow').children().children('select, input').change(function () {
 	 	$(this).removeClass('errorFocus');
 	 });
-
+	$('#subHeader2').keydown(function(e){    
+	    if(e.keyCode==13){
+	    	$(this).children().children().children().change()
+	    	$('#btnCreate').trigger('click');
+	    }
+	});
 
 	// Load theme
 	activeTheme = localStorage['theme'] != null ? localStorage['theme'] : '#08C';
@@ -66,7 +69,7 @@ var Task = function(data) {
 	this.date = ko.observable(data.date);
     this.title = ko.observable(data.title);
     this.isDone = ko.observable(data.isDone);
-}
+};
 
 /**
  ** TaskListViewModel class
@@ -77,6 +80,10 @@ var Task = function(data) {
     self.newTaskPrio = ko.observable();
     self.newTaskDate = ko.observable();
     self.newTaskText = ko.observable();
+
+    for (var i = 0; i < self.tasks().length; i++) {
+    	self.tasks()[i].isDone = ko.observable(self.tasks()[i].isDone);
+    }
 
     // Operations
     self.addTask = function() {
@@ -91,39 +98,40 @@ var Task = function(data) {
         }));
 
         clearInputFields();
-        storeAllTasks();
+        self.storeAllTasks();
     };
 
     self.removeTask = function(task) {
     	self.tasks.remove(task);
-    	storeAllTasks();
+    	self.storeAllTasks();
+    	$('#infoBox').text('');
     };
 
 	self.cssClass = function(task) {
-		try {
-			return task.isDone() ? 'done' : '';
-		} catch (ex){
-			return task.isDone ? 'done' : '';
-		}
-    }
+		self.storeAllTasks();
+		return task.isDone() ? 'done' : '';
+    };
 
- 	var storeAllTasks = function() {
+ 	self.storeAllTasks = function() {
  		localStorage['tasks'] = ko.toJSON(self.tasks());
  	};
 
 	var isValid = function () {
 		var isValid = true;
 
-		if ($('#prioSelect').val() == -1) {
-			$('#prioSelect').addClass('errorFocus');
+		if ($('#txtTask').val() == '') {
+			$('#txtTask').addClass('errorFocus');
+			$('#txtTask').focus();
 			isValid = false;
 		}
 		if ($('#txtDate').val() == '') {
 			$('#txtDate').addClass('errorFocus');
+			$('#txtDate').focus();
 			isValid = false;
 		}
-		if ($('#txtTask').val() == '') {
-			$('#txtTask').addClass('errorFocus');
+		if ($('#prioSelect').val() == -1) {
+			$('#prioSelect').addClass('errorFocus');
+			$('#prioSelect').focus();
 			isValid = false;
 		}
 
@@ -181,17 +189,13 @@ var highlightRow = function () {
 
 var unhighlightRow = function () {
 	$(this).css('box-shadow', 'none');
-	$(this).css('border-color', '#000');
+	$(this).css('border-color', '#fff');
 	$(this).css('border-radius', '');
 	// Hide delete button
 	$(this).children('.doneButton').addClass('hiddenButton');
 	$(this).children('.deleteButton').addClass('hiddenButton');
 	// Empty info box
 	$('#infoBox').text('');
-};
-
-var markAsDone = function() {
-	$(this).parent().parent().toggleClass('done');
 };
 
 var changeTheme = function(themeColor) {
@@ -212,7 +216,7 @@ var checkBrowserCompatibility = function () {
 		// no native support for HTML5 storage
 		alert('Your browser is NOT able to store your data!');
 	}
-}
+};
 
 var getAllTasks = function() {
 	return (localStorage['tasks'] != null && localStorage['tasks'] !== "undefined") ? JSON.parse(localStorage['tasks']) : new Array();
