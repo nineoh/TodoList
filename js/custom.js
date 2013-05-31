@@ -77,6 +77,9 @@ var Task = function(data) {
  var TaskListViewModel = function(localTasks) {
     var self = this;
     self.tasks = ko.observableArray(localTasks);
+    self.tasks.subscribe(function () {
+    	self.storeAllTasks();
+    });
     self.newTaskPrio = ko.observable();
     self.newTaskDate = ko.observable();
     self.newTaskText = ko.observable();
@@ -98,12 +101,10 @@ var Task = function(data) {
         }));
 
         clearInputFields();
-        self.storeAllTasks();
     };
 
     self.removeTask = function(task) {
     	self.tasks.remove(task);
-    	self.storeAllTasks();
     	$('#infoBox').text('');
     };
 
@@ -207,26 +208,6 @@ var changeTheme = function(themeColor) {
 	localStorage['theme'] = activeTheme;
 };
 
-var checkBrowserCompatibility = function () {
-	if (Modernizr.localstorage) {
-		// window.localStorage is available!
-		alert('Your browser is able to store your data!');
-	}
-	else {
-		// no native support for HTML5 storage
-		alert('Your browser is NOT able to store your data!');
-	}
-};
-
 var getAllTasks = function() {
 	return (localStorage['tasks'] != null && localStorage['tasks'] !== "undefined") ? JSON.parse(localStorage['tasks']) : new Array();
 };
-
-// var generateGuid = function () {
-// 	var guid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-// 	    var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
-// 	    return v.toString(16);
-// 	});
-
-// 	return guid;
-// }
