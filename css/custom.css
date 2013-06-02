@@ -177,11 +177,15 @@ div#taskList div.deleteButton input {
 
 div#footer {
 	position: fixed;
+	left: 0;
+	right: 0;
 	bottom: 0;
 	background-color: #000;
 	color: #fff;
 	background: url("../img/transparent_bg.png") repeat scroll 0 0 transparent;
 }
+
+
 
 @media (max-width: 767px) {
 
@@ -218,6 +222,10 @@ div#footer {
 
 	div#taskTitle {
 		padding-left: 5px;
+	}
+
+	div#footer div {
+		margin-left: 30%;
 	}
 
 }
