@@ -178,8 +178,8 @@ var highlightRow = function () {
 	$(this).css('border-radius', '10px');
 
 	// Show delete button
-	$(this).children('.doneButton').removeClass('hiddenButton');
-	$(this).children('.deleteButton').removeClass('hiddenButton');
+	$(this).children('.doneButton').removeClass('hidden-desktop');
+	$(this).children('.deleteButton').removeClass('hidden-desktop');
 	// Show Task in info box
 	var text = $(this).children('.taskText').text();
 	if (text.length > 16)
@@ -193,8 +193,8 @@ var unhighlightRow = function () {
 	$(this).css('border-color', '#fff');
 	$(this).css('border-radius', '');
 	// Hide delete button
-	$(this).children('.doneButton').addClass('hiddenButton');
-	$(this).children('.deleteButton').addClass('hiddenButton');
+	$(this).children('.doneButton').addClass('hidden-desktop');
+	$(this).children('.deleteButton').addClass('hidden-desktop');
 	// Empty info box
 	$('#infoBox').text('');
 };

@@ -20,7 +20,7 @@ div#header div#subHeader1 {
 
 div#header div#subHeader1 div#infoBox {
 	position: relative;
-	width: 160px;
+	max-width: 160px;
 	height: 20px;
 	border: solid 3px #000;
 	border-radius: 20px;
@@ -38,10 +38,10 @@ div#header div#subHeader1 div#navigation a:visited {
 	color: #0088CC;
 }
 
-div#header div#subHeader1 div#themeSelection div {
-	position: relative;
-	width: 10px;
-	height: 10px;
+div#header div#subHeader1 div#themeSelection div div {
+	/*position: relative;*/
+	max-width: 15px;
+	/*height: 10px;*/
 }
 
 div#themeSelection div.blueTheme {
@@ -108,6 +108,25 @@ div#content {
 	padding: 0;
 	/*background-color: #576D7F;*/
 	opacity: 0.8;
+	color: #fff;
+}
+	
+/*.row-fluid .span1:first-child {
+	margin-left: 5px;
+}
+*/
+div#taskTitle {
+	font-variant: small-caps;
+	font-weight: bold;
+	position: relative;
+	top: 30px;
+	left: 0;
+	right: 0;
+	margin: 0 0 30px 0;
+	margin-left: 5%;
+	margin-right: 5%;
+	width: auto;
+	padding-left: 20px;
 }
 
 div#taskList {
@@ -116,34 +135,15 @@ div#taskList {
 	top: 0;
 	left: 0;
 	right: 0;
-	margin: 60px 0 30px 0;
+	margin: 0 0 30px 0;
+	margin-left: 5%;
+	margin-right: 5%;
 }
 
 div#taskList div.task {
-	color: #fff;
 	padding-top:10px;
 	padding-left:5px;
 	border-bottom: 1px solid #fff;
-}
-
-div#taskList div.task div.prioText {
-	min-width: 40px;
-}
-
-div#taskList div.task div.dateText {
-	min-width: 100px;
-}
-
-div#taskList div.task div.taskText {
-	/*min-width: 100px;*/
-}
-
-div#taskList div.task div.doneButton {
-	min-width: 10px;
-}
-
-div#taskList div.task div.deleteButton {
-	/*margin-left: 20%;*/
 }
 
 div#taskList div.task.selected {
@@ -183,3 +183,41 @@ div#footer {
 	background: url("../img/transparent_bg.png") repeat scroll 0 0 transparent;
 }
 
+@media (max-width: 767px) {
+
+	div#taskList div.task div.offset5,
+	.row-fluid .offset5 {
+		margin-left: 44.68085106382979%;
+	}
+
+	div#taskList div.task div.span1,
+	div#taskList div.task div.span2,
+	div#taskTitle div.span1,
+	div#taskTitle div.span2 {
+		float: left;
+	}
+
+	div#taskList div.task div.span1,
+	.row-fluid .span1,
+	.row-fluid .span1:first-child {
+		width: 5.982905982905983%;
+		min-width: 20px;
+		margin-left: 3%;
+	}
+
+	div#taskList div.task div.span2,
+	.row-fluid .span2 {
+		width: 14.52991452991453%;
+		min-width: 100px;
+		margin-left: 3%;
+	}
+
+	div#content {
+		top: 10px;
+	}
+
+	div#taskTitle {
+		padding-left: 5px;
+	}
+
+}

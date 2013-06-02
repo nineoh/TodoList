@@ -4,29 +4,33 @@
 	<title>TODOs</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
-	<!-- <link rel="stylesheet" href="css/bootstrap-responsive.min.css" type="text/css" /> -->
 	<link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css" />
-	<!-- <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css" type="text/css" /> -->
 	<link rel="stylesheet" href="css/custom.css" type="text/css" media="screen" />
 	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type='text/javascript' src='js/knockout-2.2.1.js'></script>
 	<script type="text/javascript" src="js/custom.js"></script>
 </head>
 <body>
 	<div id="header" class="container-fluid">
-		<div id="subHeader1" class="row-fluid">
-			<div class="span2"><div id="infoBox"></div></div>
-			<div id="navigation" class="span8 row-fluid">
-				<div class="span1"><a href="index.html">Home</a></div>
-				<div class="span1"><a href="about.html">About</a></div>
-				<div class="span1"><a href="contact.html">Contact</a></div>
+		<div id="subHeader1" class="row-fluid hidden-phone">
+			<div class="span2">
+				<div id="infoBox"></div>
+			</div>
+			<div id="navigation" class="span3">
+				<div class="row-fluid">
+					<div class="span4"><a href="index.html">Home</a></div>
+					<div class="span4"><a href="about.html">About</a></div>
+					<div class="span4"><a href="contact.html">Contact</a></div>
+				</div>
 			</div><!-- #navigation -->
-			<div id="themeSelection" class="span2 row-fluid">
-				<div class="span1 blueTheme"></div>
-				<div class="span1 offset1 pinkTheme"></div>
-				<div class="span1 offset1 greenTheme"></div>
+			<div id="themeSelection" class="offset5 span1">
+				<div class="row-fluid">
+					<div class="span3 blueTheme"></div>
+					<div class="span3 offset1 pinkTheme"></div>
+					<div class="span3 offset1 greenTheme"></div>
+				</div>
 			</div><!-- #themeSelection -->
 		</div><!-- #subHeader1 -->
 		<div id="subHeader2" class="container-fluid">
@@ -46,22 +50,27 @@
 					<input type="text" id="txtTask" placeholder="Task" data-bind="value: newTaskText" />
 				</div>
 				<div class="span2">
-					<input type="button" id="btnCreate" value="Create Task" data-bind="click: addTask" />
+					<input type="button" id="btnCreate" class="btn" value="Create Task" data-bind="click: addTask" />
 				</div>
 			</div>
 		</div><!-- #subHeader2 -->
 	</div><!-- #header -->
 
 	<div id="content" class="container-fluid">
+		<div id="taskTitle" class="row-fluid">
+			<div class="span1">Prio</div>
+			<div class="span2">Date</div>
+			<div class="span2">Task</div>
+		</div>
 		<div id="taskList" class="container-fluid" data-bind="foreach: tasks">
 			<div class="row-fluid task" data-bind="attr: { 'class': $parent.cssClass($data) + ' row-fluid task' }">
 				<div class="span1 prioText" data-bind="text: prio"></div>
 				<div class="span2 dateText" data-bind="text: date"></div>
 				<div class="span2 taskText" data-bind="text: title"></div>
-				<div class="span1 offset5 doneButton hiddenButton">
+				<div class="span1 offset5 doneButton hidden-desktop">
 					<input type="checkbox" data-bind="checked: isDone" />
 				</div>
-				<div class="span1 deleteButton hiddenButton">
+				<div class="span1 deleteButton hidden-desktop">
 					<input type="button" data-bind="click: $parent.removeTask" />
 				</div>
 			</div>
