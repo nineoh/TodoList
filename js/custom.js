@@ -107,7 +107,7 @@ var Task = function(data) {
 
     self.removeTask = function(task) {
     	self.tasks.remove(task);
-    	$('#infoBox').text('');
+    	$('#infoBox').html(defaultLogo);
     };
 
 	self.cssClass = function(task) {
@@ -140,17 +140,17 @@ var Task = function(data) {
 
 		if ($('#txtTask').val() == '') {
 			$('#txtTask').addClass('errorFocus');
-			$('#txtTask').focus();
+			// $('#txtTask').focus();
 			isValid = false;
 		}
 		if ($('#txtDate').val() == '') {
 			$('#txtDate').addClass('errorFocus');
-			$('#txtDate').focus();
+			// $('#txtDate').focus();
 			isValid = false;
 		}
 		if ($('#prioSelect').val() == -1) {
 			$('#prioSelect').addClass('errorFocus');
-			$('#prioSelect').focus();
+			// $('#prioSelect').focus();
 			isValid = false;
 		}
 

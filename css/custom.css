@@ -1,5 +1,4 @@
 body {
-	/*background: url("../img/bg.png") no-repeat;*/
 	background: url(../img/page_bg.png) repeat;
 }
 
@@ -15,7 +14,6 @@ div#header {
 
 div#header div#subHeader1 {
 	padding-left: 10px;
-	/*background-color: #1A2026;*/
 }
 
 div#header div#subHeader1 div#infoBox {
@@ -31,6 +29,7 @@ div#header div#subHeader1 div#infoBox {
 
 div#header div#subHeader1 div#navigation {
 	margin-top: 40px;
+	font-variant: small-caps;
 }
 
 div#header div#subHeader1 div#navigation a,
@@ -39,9 +38,7 @@ div#header div#subHeader1 div#navigation a:visited {
 }
 
 div#header div#subHeader1 div#themeSelection div div {
-	/*position: relative;*/
 	max-width: 15px;
-	/*height: 10px;*/
 }
 
 div#themeSelection div.blueTheme {
@@ -61,10 +58,7 @@ div#header div#subHeader2 {
 	padding-top: 10px;
 	padding-left: 10px;
 	min-height: 10px;
-/*	box-shadow: 0 0 15px 10px #1A2026 inset;
-	-webkit-box-shadow: 0 0 15px 10px #1A2026 inset;
-	-moz-box-shadow: 0 0 15px 10px #1A2026 inset;
-*/}
+}
 
 div#header div#subHeader2 input,
 div#header div#subHeader2 select {
@@ -106,7 +100,6 @@ div#content {
 	bottom: 0;
 	overflow: auto;
 	padding: 0;
-	/*background-color: #576D7F;*/
 	opacity: 0.8;
 	color: #fff;
 }
@@ -115,11 +108,7 @@ div.simpleContent {
 	margin-left: 5%;
 	padding-left: 20px;
 }
-	
-/*.row-fluid .span1:first-child {
-	margin-left: 5px;
-}
-*/
+
 div#taskTitle {
 	font-variant: small-caps;
 	font-weight: bold;
