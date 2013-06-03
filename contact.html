@@ -35,48 +35,14 @@
 				</div>
 			</div><!-- #themeSelection -->
 		</div><!-- #subHeader1 -->
-		<div id="subHeader2" class="container-fluid">
-			<div class="row-fluid hiddenRow">
-				<div class="span1" id="prioSelectDiv">
-					<select id="prioSelect" data-bind="value: newTaskPrio">
-						<option value="-1">Prio</option>
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-					</select>
-				</div>
-				<div class="span2" id="dateDiv">
-					<input type="text" id="txtDate" placeholder="Date" data-bind="value: newTaskDate" />
-				</div>
-				<div class="span2" id="taskDiv">
-					<input type="text" id="txtTask" placeholder="Task" data-bind="value: newTaskText" />
-				</div>
-				<div class="span2">
-					<input type="button" id="btnCreate" class="btn" value="Create Task" data-bind="click: addTask" />
-				</div>
-			</div>
-		</div><!-- #subHeader2 -->
 	</div><!-- #header -->
 
-	<div id="content" class="container-fluid">
-		<div id="taskTitle" class="row-fluid">
-			<div class="span1">Prio</div>
-			<div class="span2">Date</div>
-			<div class="span2">Task</div>
-		</div>
-		<div id="taskList" class="container-fluid" data-bind="foreach: tasks">
-			<div class="row-fluid task" data-bind="attr: { 'class': $parent.cssClass($data) + ' row-fluid task' }">
-				<div class="span1 prioText" data-bind="text: prio"></div>
-				<div class="span2 dateText" data-bind="text: date"></div>
-				<div class="span2 taskText" data-bind="text: title"></div>
-				<div class="span1 offset5 doneButton hidden-desktop">
-					<input type="checkbox" data-bind="checked: isDone" />
-				</div>
-				<div class="span1 deleteButton hidden-desktop">
-					<input type="button" data-bind="click: $parent.removeTask" />
-				</div>
-			</div>
-		</div><!-- #taskList -->
+	<div id="content" class="container-fluid simpleContent">
+		<h1>Contact</h1>
+		<ul>
+			<li>Nino Lanfranchi</li>
+			<li>E-Mail: ....</li>
+		</ul>
 	</div><!-- #content -->
 
 	<div id="footer" class="row-fluid">

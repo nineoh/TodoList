@@ -110,6 +110,11 @@ div#content {
 	opacity: 0.8;
 	color: #fff;
 }
+
+div.simpleContent {
+	margin-left: 5%;
+	padding-left: 20px;
+}
 	
 /*.row-fluid .span1:first-child {
 	margin-left: 5px;

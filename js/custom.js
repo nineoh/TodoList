@@ -56,6 +56,8 @@ $(function() {
 	activeTheme = localStorage['theme'] != null ? localStorage['theme'] : '#08C';
 	changeTheme(activeTheme);
 
+	defaultLogo = $('#infoBox').html();
+
 	// Load tasks
 	ko.applyBindings(new TaskListViewModel(getAllTasks()));
 });
@@ -153,6 +155,7 @@ var Task = function(data) {
  **
  **/
 var activeTheme;
+var defaultLogo;
 
 var showCreateTaskBar = function () {
 	$(this).children().slideDown(300, function() {
@@ -185,7 +188,7 @@ var highlightRow = function () {
 	if (text.length > 16)
 		text = text.substring(0, 15) + "...";
 
-	$('#infoBox').text(text);
+	$('#infoBox').html(text);
 };
 
 var unhighlightRow = function () {
@@ -196,7 +199,7 @@ var unhighlightRow = function () {
 	$(this).children('.doneButton').addClass('hidden-desktop');
 	$(this).children('.deleteButton').addClass('hidden-desktop');
 	// Empty info box
-	$('#infoBox').text('');
+	$('#infoBox').html(defaultLogo);
 };
 
 var changeTheme = function(themeColor) {
