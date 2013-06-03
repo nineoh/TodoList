@@ -51,6 +51,9 @@ $(function() {
 	    	$('#btnCreate').trigger('click');
 	    }
 	});
+	$('#taskTitle div').hover(function() {
+		$(this).css('cursor', 'pointer');
+	});
 
 	// Load theme
 	activeTheme = localStorage['theme'] != null ? localStorage['theme'] : '#08C';
@@ -129,6 +132,18 @@ var Task = function(data) {
 		}
 
 		return 'green';
+    };
+
+    self.sortListByPrio = function() {
+    	self.tasks.sort(function (l, r) { return l.prio > r.prio ? 1 : -1 });
+    };
+
+    self.sortListByDate = function() {
+    	self.tasks.sort(function (l, r) { return l.date > r.date ? 1 : -1 });
+    };
+
+    self.sortListByTask = function() {
+    	self.tasks.sort(function (l, r) { return l.title > r.title ? 1 : -1 });
     };
 
  	self.storeAllTasks = function() {

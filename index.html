@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
 	<title>TODOs</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
@@ -29,9 +30,9 @@
 			</div><!-- #navigation -->
 			<div id="themeSelection" class="offset5 span1">
 				<div class="row-fluid">
-					<div class="span3 blueTheme"></div>
-					<div class="span3 offset1 pinkTheme"></div>
-					<div class="span3 offset1 greenTheme"></div>
+					<div class="span3 blueTheme" title="Choose blue theme"></div>
+					<div class="span3 offset1 pinkTheme" title="Choose pink theme"></div>
+					<div class="span3 offset1 greenTheme" title="Choose green theme"></div>
 				</div>
 			</div><!-- #themeSelection -->
 		</div><!-- #subHeader1 -->
@@ -60,9 +61,9 @@
 
 	<div id="content" class="container-fluid">
 		<div id="taskTitle" class="row-fluid">
-			<div class="span1">Prio</div>
-			<div class="span2">Date</div>
-			<div class="span2">Task</div>
+			<div class="span1" title="Sort by priority" data-bind="click: sortListByPrio">Prio</div>
+			<div class="span2" title="Sort by date" data-bind="click: sortListByDate">Date</div>
+			<div class="span2" title="Sort by task" data-bind="click: sortListByTask">Task</div>
 		</div>
 		<div id="taskList" class="container-fluid" data-bind="foreach: tasks">
 			<div class="row-fluid task" data-bind="attr: { 'class': $parent.cssClass($data) + ' row-fluid task' }">
@@ -70,10 +71,10 @@
 				<div class="span2 dateText" data-bind="text: date"></div>
 				<div class="span2 taskText" data-bind="text: title"></div>
 				<div class="span1 offset5 doneButton hidden-desktop">
-					<input type="checkbox" data-bind="checked: isDone" />
+					<input type="checkbox" data-bind="checked: isDone" title="Done / undone" />
 				</div>
 				<div class="span1 deleteButton hidden-desktop">
-					<input type="button" data-bind="click: $parent.removeTask" />
+					<input type="button" data-bind="click: $parent.removeTask" title="Delete" />
 				</div>
 			</div>
 		</div><!-- #taskList -->
