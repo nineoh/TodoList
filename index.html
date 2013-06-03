@@ -66,7 +66,7 @@
 		</div>
 		<div id="taskList" class="container-fluid" data-bind="foreach: tasks">
 			<div class="row-fluid task" data-bind="attr: { 'class': $parent.cssClass($data) + ' row-fluid task' }">
-				<div class="span1 prioText" data-bind="text: prio"></div>
+				<div class="span1 prioText" data-bind="text: prio, attr: { 'class': $parent.prioCssClass($data) + ' span1 prioText' }"></div>
 				<div class="span2 dateText" data-bind="text: date"></div>
 				<div class="span2 taskText" data-bind="text: title"></div>
 				<div class="span1 offset5 doneButton hidden-desktop">

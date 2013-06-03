@@ -115,6 +115,22 @@ var Task = function(data) {
 		return task.isDone() ? 'done' : '';
     };
 
+	self.prioCssClass = function(task) {
+		try {
+			if (task.prio() == '1')
+				return 'red';
+			if (task.prio() == '2')
+				return 'orange';
+		} catch (ex) {
+			if (task.prio == '1')
+				return 'red';
+			if (task.prio == '2')
+				return 'orange';	
+		}
+
+		return 'green';
+    };
+
  	self.storeAllTasks = function() {
  		localStorage['tasks'] = ko.toJSON(self.tasks());
  	};

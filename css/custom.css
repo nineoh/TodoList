@@ -190,7 +190,17 @@ div#footer {
 	background: url("../img/transparent_bg.png") repeat scroll 0 0 transparent;
 }
 
+.red {
+	color: red;
+}
 
+.orange {
+	color: orange;
+}
+
+.green {
+	color: green;
+}
 
 @media (max-width: 767px) {
 
