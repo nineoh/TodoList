@@ -82,9 +82,9 @@ div#header div#subHeader2 div#taskDiv input {
 
 select.errorFocus,
 input.errorFocus {
-	box-shadow: 0 0 15px #f00;
-	-webkit-box-shadow: 0 0 15px #f00; 
-	-moz-box-shadow: 0 0 15px #f00;
+	box-shadow: 0 0 50px #f00;
+	-webkit-box-shadow: 0 0 50px #f00; 
+	-moz-box-shadow: 0 0 50px #f00;
 }
 
 .hiddenRow {

@@ -89,6 +89,9 @@ var Task = function(data) {
     self.newTaskDate = ko.observable();
     self.newTaskText = ko.observable();
 
+    self.sortColumn = ko.observable("prioTitle");
+	self.isSortAsc = ko.observable(true);
+
     for (var i = 0; i < self.tasks().length; i++) {
     	self.tasks()[i].isDone = ko.observable(self.tasks()[i].isDone);
     }
@@ -135,18 +138,54 @@ var Task = function(data) {
     };
 
     self.sortListByPrio = function() {
-    	self.tasks.sort(function (l, r) { return l.prio > r.prio ? 1 : -1 });
+    	if(self.sortColumn === event.target.id)
+    		self.isSortAsc = !self.isSortAsc;
+    	else {
+    		self.sortColumn = event.target.id;
+    		self.isSortAsc = true;
+    	}               
+
+    	self.tasks.sort(function (a, b) {
+    		if (self.isSortAsc)
+    			return a.prio < b.prio ? -1 : 1;
+    		else
+    			return a.prio < b.prio ? 1 : -1;
+    	});
     };
 
     self.sortListByDate = function() {
-    	self.tasks.sort(function (l, r) { return l.date > r.date ? 1 : -1 });
+    	if(self.sortColumn === event.target.id)
+    		self.isSortAsc = !self.isSortAsc;
+    	else {
+    		self.sortColumn = event.target.id;
+    		self.isSortAsc = true;
+    	}               
+
+    	self.tasks.sort(function (a, b) {
+    		if (self.isSortAsc)
+    			return a.date < b.date ? -1 : 1;
+    		else
+    			return a.date < b.date ? 1 : -1;
+    	});
     };
 
     self.sortListByTask = function() {
-    	self.tasks.sort(function (l, r) { return l.title > r.title ? 1 : -1 });
+    	if(self.sortColumn === event.target.id)
+    		self.isSortAsc = !self.isSortAsc;
+    	else {
+    		self.sortColumn = event.target.id;
+    		self.isSortAsc = true;
+    	}               
+
+    	self.tasks.sort(function (a, b) {
+    		if (self.isSortAsc)
+    			return a.title < b.title ? -1 : 1;
+    		else
+    			return a.title < b.title ? 1 : -1;
+    	});
     };
 
- 	self.storeAllTasks = function() {
+    self.storeAllTasks = function() {
  		localStorage['tasks'] = ko.toJSON(self.tasks());
  	};
 
