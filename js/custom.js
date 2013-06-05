@@ -180,9 +180,9 @@ var Task = function(data) {
 
     	self.tasks.sort(function (a, b) {
     		if (self.isSortAsc)
-    			return a.title < b.title ? -1 : 1;
+    			return a.title.toLowerCase() < b.title.toLowerCase() ? -1 : 1;
     		else
-    			return a.title < b.title ? 1 : -1;
+    			return a.title.toLowerCase() < b.title.toLowerCase() ? 1 : -1;
     	});
     };
 
