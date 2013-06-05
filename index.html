@@ -23,9 +23,9 @@
 			</div>
 			<div id="navigation" class="span3">
 				<div class="row-fluid">
-					<div class="span4"><a href="index.html" class="current">Home</a></div>
-					<div class="span4"><a href="about.html">About</a></div>
-					<div class="span4"><a href="contact.html">Contact</a></div>
+					<div class="span4"><a href="index.html" class="current" title="Task list itself">Home</a></div>
+					<div class="span4"><a href="about.html" title="About this website">About</a></div>
+					<div class="span4"><a href="contact.html" title="Contact me">Contact</a></div>
 				</div>
 			</div><!-- #navigation -->
 			<div id="themeSelection" class="offset5 span1">
@@ -39,7 +39,7 @@
 		<div id="subHeader2" class="container-fluid">
 			<div class="row-fluid hiddenRow">
 				<div class="span1" id="prioSelectDiv">
-					<select id="prioSelect" data-bind="value: newTaskPrio">
+					<select id="prioSelect" data-bind="value: newTaskPrio" title="Select a priority">
 						<option value="-1">Prio</option>
 						<option value="1">1</option>
 						<option value="2">2</option>
@@ -47,13 +47,13 @@
 					</select>
 				</div>
 				<div class="span2" id="dateDiv">
-					<input type="text" id="txtDate" placeholder="Date" data-bind="value: newTaskDate" readonly="true" />
+					<input type="text" id="txtDate" placeholder="Date" data-bind="value: newTaskDate" title="Choose a due date" readonly="true" />
 				</div>
 				<div class="span2" id="taskDiv">
-					<input type="text" id="txtTask" placeholder="Task" data-bind="value: newTaskText" />
+					<input type="text" id="txtTask" placeholder="Task" data-bind="value: newTaskText" title="Enter a task description" />
 				</div>
 				<div class="span2">
-					<input type="button" id="btnCreate" class="btn" value="Create Task" data-bind="click: addTask" />
+					<input type="button" id="btnCreate" class="btn" value="Create Task" data-bind="click: addTask" title="Add task to the list" />
 				</div>
 			</div>
 		</div><!-- #subHeader2 -->
