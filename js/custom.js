@@ -20,7 +20,10 @@ $(function() {
 	 	yearSuffix: ''
 	 };
 	 $.datepicker.setDefaults($.datepicker.regional['de-CH']);
-	 $('#txtDate').datepicker();
+	 $('#txtDate').datepicker().hover(function() {
+	 	$(this).css('cursor', 'pointer');
+	 });
+
 
 	 // Different event handlers are defined here.
 	 $('div#subHeader2').hover(showCreateTaskBar);
