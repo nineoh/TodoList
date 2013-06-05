@@ -109,6 +109,7 @@ var Task = function(data) {
         }));
 
         clearInputFields();
+        hideCreateTaskBar();
     };
 
     self.removeTask = function(task) {
@@ -274,7 +275,7 @@ var unhighlightRow = function () {
 
 var changeTheme = function(themeColor) {
 	activeTheme = themeColor;
-	$('div#header div#subHeader1 div#navigation a, div#header div#subHeader1 div#navigation a:visited').css('color', themeColor);
+	$('a, a:visited').css('color', themeColor);
 	$('div#themeSelection div').css('box-shadow', 'none');
 
 	// Store theme setting into lacal storage

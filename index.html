@@ -23,7 +23,7 @@
 			</div>
 			<div id="navigation" class="span3">
 				<div class="row-fluid">
-					<div class="span4"><a href="index.html">Home</a></div>
+					<div class="span4"><a href="index.html" class="current">Home</a></div>
 					<div class="span4"><a href="about.html">About</a></div>
 					<div class="span4"><a href="contact.html">Contact</a></div>
 				</div>
@@ -47,7 +47,7 @@
 					</select>
 				</div>
 				<div class="span2" id="dateDiv">
-					<input type="text" id="txtDate" placeholder="Date" data-bind="value: newTaskDate" />
+					<input type="text" id="txtDate" placeholder="Date" data-bind="value: newTaskDate" readonly="true" />
 				</div>
 				<div class="span2" id="taskDiv">
 					<input type="text" id="txtTask" placeholder="Task" data-bind="value: newTaskText" />
@@ -69,8 +69,8 @@
 			<div class="row-fluid task" data-bind="attr: { 'class': $parent.cssClass($data) + ' row-fluid task' }">
 				<div class="span1 prioText" data-bind="text: prio, attr: { 'class': $parent.prioCssClass($data) + ' span1 prioText' }"></div>
 				<div class="span2 dateText" data-bind="text: date"></div>
-				<div class="span2 taskText" data-bind="text: title"></div>
-				<div class="span1 offset5 doneButton hidden-desktop">
+				<div class="span6 taskText" data-bind="text: title"></div>
+				<div class="span1 offset1 doneButton hidden-desktop">
 					<input type="checkbox" data-bind="checked: isDone" title="Done / undone" />
 				</div>
 				<div class="span1 deleteButton hidden-desktop">

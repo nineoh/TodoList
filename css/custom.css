@@ -32,9 +32,16 @@ div#header div#subHeader1 div#navigation {
 	font-variant: small-caps;
 }
 
-div#header div#subHeader1 div#navigation a,
+/*div#header div#subHeader1 div#navigation a,
 div#header div#subHeader1 div#navigation a:visited {
+*/	
+a, a:visited {
 	color: #0088CC;
+}
+
+a.current {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
 }
 
 div#header div#subHeader1 div#themeSelection div div {
@@ -201,9 +208,12 @@ div#footer {
 
 	div#taskList div.task div.span1,
 	div#taskList div.task div.span2,
+	div#taskList div.task div.span6,
 	div#taskTitle div.span1,
-	div#taskTitle div.span2 {
+	div#taskTitle div.span1,
+	div#taskTitle div.span6 {
 		float: left;
+		width: auto;
 	}
 
 	div#taskList div.task div.span1,
