@@ -39,12 +39,14 @@
 		<div id="subHeader2" class="container-fluid">
 			<div class="row-fluid hiddenRow">
 				<div class="span1" id="prioSelectDiv">
-					<select id="prioSelect" data-bind="value: newTaskPrio" title="Select a priority">
-						<option value="-1">Prio</option>
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-					</select>
+					<div class="selectWrapper">
+						<select id="prioSelect" data-bind="value: newTaskPrio" title="Select a priority">
+							<option value="-1">Prio</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+						</select>
+					</div><!-- .selectWrapper -->
 				</div>
 				<div class="span2" id="dateDiv">
 					<input type="text" id="txtDate" placeholder="Date" data-bind="value: newTaskDate" title="Choose a due date" readonly="readonly" />

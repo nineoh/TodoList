@@ -45,7 +45,7 @@ $(function() {
 	 }, function () {
 	 	$(this).css('box-shadow', 'none');
 	 });
-	 $('div.hiddenRow').children().children('select, input').change(function () {
+	 $('div.hiddenRow').children().children('div.selectWrapper, select, input').change(function () {
 	 	$(this).removeClass('errorFocus');
 	 });
 	$('#subHeader2').keydown(function(e){    
@@ -207,7 +207,7 @@ var Task = function(data) {
 			isValid = false;
 		}
 		if ($('#prioSelect').val() == -1) {
-			$('#prioSelect').addClass('errorFocus');
+			$('div.selectWrapper').addClass('errorFocus');
 			// $('#prioSelect').focus();
 			isValid = false;
 		}

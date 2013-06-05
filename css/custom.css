@@ -83,7 +83,12 @@ div#header div#subHeader2 div#taskDiv input {
 	max-width: 90%;
 }
 
-select.errorFocus,
+div.selectWrapper {
+	display: inline-block;
+	height: 30px;
+}
+
+div.selectWrapper.errorFocus,
 input.errorFocus {
 	box-shadow: 0 0 50px #f00;
 	-webkit-box-shadow: 0 0 50px #f00; 
