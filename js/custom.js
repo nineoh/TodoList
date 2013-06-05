@@ -57,6 +57,14 @@ $(function() {
 	$('#taskTitle div').hover(function() {
 		$(this).css('cursor', 'pointer');
 	});
+	$('#exportButton').click(function(e) {
+		e.preventDefault();
+		exportData();
+	});
+	$('#importButton').click(function(e) {
+		e.preventDefault();
+		importData();
+	});
 
 	// Load theme
 	activeTheme = localStorage['theme'] != null ? localStorage['theme'] : '#08C';
@@ -283,6 +291,29 @@ var changeTheme = function(themeColor) {
 
 	// Store theme setting into lacal storage
 	localStorage['theme'] = activeTheme;
+};
+
+// Exports data using csv format
+var exportData = function() {
+	var dataArray = getAllTasks();
+	var csvContent = "data:text/csv;charset=utf-8,";
+
+	dataArray.forEach(function(task){
+	   csvContent += task.prio + ";" + task.date + ";" + task.title + "\n";
+	}); 
+
+	var encodedUri = encodeURI(csvContent);
+	var link = document.createElement("a");
+	link.setAttribute("href", encodedUri);
+	link.setAttribute("download", "ToDo_data.csv");
+
+	link.click(); // This will download the data file named "ToDo_data.csv".
+	// var encodedUri = encodeURI(csvContent);
+	// window.open(encodedUri, 'ToDo_data.csv');
+};
+
+var importData = function() {
+
 };
 
 var getAllTasks = function() {
