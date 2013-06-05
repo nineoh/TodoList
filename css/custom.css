@@ -32,16 +32,12 @@ div#header div#subHeader1 div#navigation {
 	font-variant: small-caps;
 }
 
-/*div#header div#subHeader1 div#navigation a,
-div#header div#subHeader1 div#navigation a:visited {
-*/	
 a, a:visited {
 	color: #0088CC;
 }
 
 a.current {
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
+	text-decoration: underline;
 }
 
 div#header div#subHeader1 div#themeSelection div div {
