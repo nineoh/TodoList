@@ -186,6 +186,11 @@ div#footer {
 	background-color: #000;
 	color: #fff;
 	background: url("../img/transparent_bg.png") repeat scroll 0 0 transparent;
+	text-align: center;
+}
+
+div#footer input:file {
+	max-width: 200px;
 }
 
 .red {
