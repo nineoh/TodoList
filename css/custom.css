@@ -170,16 +170,34 @@ div#taskList .done div {
 	color: #999;
 }
 
-div#taskList div.doneButton input {
-	background: url("../img/tick.png") no-repeat;
+div#taskList div.doneButton input,
+div#taskList div.editButton input,
+div#taskList div.saveButton input,
+div#taskList div.cancelButton input,
+div#taskList div.deleteButton input {
 	border: none;
 	width: 25px;
 }
 
+div#taskList div.doneButton input
+{
+	background: url("../img/tick.png") no-repeat;
+}
+
+div#taskList div.editButton input {
+	background: url("../img/edit.png") no-repeat;
+}
+
+div#taskList div.saveButton input {
+	background: url("../img/save.png") no-repeat;
+}
+
+div#taskList div.cancelButton input {
+	background: url("../img/cancel.png") no-repeat;
+}
+
 div#taskList div.deleteButton input {
 	background: url("../img/delete_25x25.png") no-repeat;
-	border: none;
-	width: 25px;
 }
 
 div#footer {

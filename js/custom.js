@@ -59,6 +59,11 @@ $(function() {
 	    	$('#btnCreate').trigger('click');
 	    }
 	});
+	// $('#taskList').on('keydown', 'input', function(e) {
+	// 	if (e.keyCode==13) {
+	// 		taskListViewModel.save();
+	// 	}
+	// });
 	$('#taskTitle div').hover(function() {
 		$(this).css('cursor', 'pointer');
 	});
@@ -78,7 +83,8 @@ $(function() {
 	defaultLogo = $('#infoBox').html();
 
 	// Load tasks
-	ko.applyBindings(new TaskListViewModel(getAllTasks()));
+	var taskListViewModel = new TaskListViewModel(getAllTasks());
+	ko.applyBindings(taskListViewModel);
 });
 
 
@@ -129,15 +135,26 @@ var Task = function(data) {
     	self.selectedTask(task);
     };
 
-    self.cancel = function(task) {
-    	task.prio = self.backupPrio;
-    	task.date = self.backupDate;
-    	task.title = self.backupTitle;
+    self.cancel = function() {
+    	self.selectedTask().prio = self.backupPrio;
+    	self.selectedTask().date = self.backupDate;
+    	self.selectedTask().title = self.backupTitle;
     	self.selectedTask(null);
     };
 
     self.save = function() {
     	self.selectedTask(null);
+    };
+
+    self.keyPressed = function() {
+    	if (event.keyCode === 13) {
+    		self.save();
+    	}
+    	// else if (event.keyCode === 27) {
+    	// 	self.cancel();
+    	// }
+
+    	return true;
     };
 
     self.templateToUse = function (task) {
