@@ -24,6 +24,11 @@ $(function() {
 	 	$(this).css('cursor', 'pointer');
 	 });
 
+	 $('#taskList').on('mouseover', '.dateInput', function() {
+	 	$(this).datepicker();
+		$(this).css('cursor', 'pointer');
+	 });
+
 
 	 // Different event handlers are defined here.
 	 $('div#subHeader2').hover(showCreateTaskBar);
@@ -103,9 +108,41 @@ var Task = function(data) {
     self.sortColumn = ko.observable("prioTitle");
 	self.isSortAsc = ko.observable(true);
 
+	self.selectedTask = ko.observable();
+	self.backupPrio;
+	self.backupDate;
+	self.backupTitle;
+
     for (var i = 0; i < self.tasks().length; i++) {
     	self.tasks()[i].isDone = ko.observable(self.tasks()[i].isDone);
-    }
+    };
+
+    self.edit = function(task) {
+    	if (self.selectedTask() != undefined) {
+    		self.selectedTask().prio = self.backupPrio;
+    		self.selectedTask().date = self.backupDate;
+    		self.selectedTask().title = self.backupTitle;
+    	}
+    	self.backupPrio = task.prio;
+    	self.backupDate = task.date;
+    	self.backupTitle = task.title;
+    	self.selectedTask(task);
+    };
+
+    self.cancel = function(task) {
+    	task.prio = self.backupPrio;
+    	task.date = self.backupDate;
+    	task.title = self.backupTitle;
+    	self.selectedTask(null);
+    };
+
+    self.save = function() {
+    	self.selectedTask(null);
+    };
+
+    self.templateToUse = function (task) {
+        return self.selectedTask() === task ? 'editTemplate' : 'normalTemplate';
+    };
 
     // Operations
     self.addTask = function() {
@@ -174,10 +211,16 @@ var Task = function(data) {
     	}               
 
     	self.tasks.sort(function (a, b) {
+    		// Rearrange date, that it's in the right format for parsing.
+    		var tmpVar = a.date.split('.');
+    		var leftDate = Date.parse(tmpVar[2] + "-" + tmpVar[1] + "-" + tmpVar[0]);
+    		tmpVar = b.date.split('.');
+    		var rightDate = Date.parse(tmpVar[2] + "-" + tmpVar[1] + "-" + tmpVar[0]);
+
     		if (self.isSortAsc)
-    			return a.date < b.date ? -1 : 1;
+    			return leftDate < rightDate ? -1 : 1;
     		else
-    			return a.date < b.date ? 1 : -1;
+    			return leftDate < rightDate ? 1 : -1;
     	});
     };
 
@@ -204,19 +247,16 @@ var Task = function(data) {
 	var isValid = function () {
 		var isValid = true;
 
-		if ($('#txtTask').val() == '') {
+		if (!self.newTaskText()) {
 			$('#txtTask').addClass('errorFocus');
-			// $('#txtTask').focus();
 			isValid = false;
 		}
-		if ($('#txtDate').val() == '') {
+		if (!self.newTaskDate()) {
 			$('#txtDate').addClass('errorFocus');
-			// $('#txtDate').focus();
 			isValid = false;
 		}
-		if ($('#prioSelect').val() == -1) {
-			$('div.selectWrapper').addClass('errorFocus');
-			// $('#prioSelect').focus();
+		if (self.newTaskPrio() === '-1') {
+			$('div#prioSelectDiv div.selectWrapper').addClass('errorFocus');
 			isValid = false;
 		}
 
@@ -262,9 +302,10 @@ var highlightRow = function () {
 	$(this).css('border-color', activeTheme);
 	$(this).css('border-radius', '10px');
 
-	// Show delete button
+	// Show buttons
 	$(this).children('.doneButton').removeClass('hidden-desktop');
 	$(this).children('.deleteButton').removeClass('hidden-desktop');
+	$(this).children('.editButton').removeClass('hidden-desktop');
 	// Show Task in info box
 	var text = $(this).children('.taskText').text();
 	if (text.length > 16)
@@ -280,6 +321,7 @@ var unhighlightRow = function () {
 	// Hide delete button
 	$(this).children('.doneButton').addClass('hidden-desktop');
 	$(this).children('.deleteButton').addClass('hidden-desktop');
+	$(this).children('.editButton').addClass('hidden-desktop');
 	// Empty info box
 	$('#infoBox').html(defaultLogo);
 };

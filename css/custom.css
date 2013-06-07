@@ -143,6 +143,10 @@ div#taskList {
 	margin-right: 5%;
 }
 
+input, select {
+	width:auto;
+}
+
 div#taskList div.task {
 	padding-top:10px;
 	padding-left:5px;

@@ -49,7 +49,7 @@
 					</div><!-- .selectWrapper -->
 				</div>
 				<div class="span2" id="dateDiv">
-					<input type="text" id="txtDate" placeholder="Date" data-bind="value: newTaskDate" title="Choose a due date" readonly="readonly" />
+					<input type="text" id="txtDate" class="dateInput" placeholder="Date" data-bind="value: newTaskDate" title="Choose a due date" readonly="readonly" />
 				</div>
 				<div class="span2" id="taskDiv">
 					<input type="text" id="txtTask" placeholder="Task" data-bind="value: newTaskText" title="Enter a task description" />
@@ -67,18 +67,47 @@
 			<div class="span2" title="Sort by date" data-bind="click: sortListByDate">Date</div>
 			<div class="span2" title="Sort by task" data-bind="click: sortListByTask">Task</div>
 		</div>
-		<div id="taskList" class="container-fluid" data-bind="foreach: tasks">
-			<div class="row-fluid task" data-bind="attr: { 'class': $parent.cssClass($data) + ' row-fluid task' }">
-				<div class="span1 prioText" data-bind="text: prio, attr: { 'class': $parent.prioCssClass($data) + ' span1 prioText' }"></div>
-				<div class="span2 dateText" data-bind="text: date"></div>
-				<div class="span6 taskText" data-bind="text: title"></div>
-				<div class="span1 offset1 doneButton hidden-desktop">
-					<input type="checkbox" data-bind="checked: isDone" title="Done / undone" />
+		<div id="taskList" class="container-fluid" data-bind=" template:{name:templateToUse, foreach: tasks }">
+			<!-- normal list -->
+			<script type="text/html" id="normalTemplate">
+				<div class="row-fluid task" data-bind="attr: { 'class': $parent.cssClass($data) + ' row-fluid task' }">
+					<div class="span1 prioText" data-bind="text: prio, attr: { 'class': $parent.prioCssClass($data) + ' span1 prioText' }"></div>
+					<div class="span2 dateText" data-bind="text: date"></div>
+					<div class="span6 taskText" data-bind="text: title"></div>
+					<div class="span1 doneButton hidden-desktop">
+						<input type="checkbox" data-bind="checked: isDone" title="Done / undone" />
+					</div>
+					<div class="span1 editButton hidden-desktop">
+						<input type="button" data-bind="click: $parent.edit" title="Edit" value="Edit" />
+					</div>
+					<div class="span1 deleteButton hidden-desktop">
+						<input type="button" data-bind="click: $parent.removeTask" title="Delete" />
+					</div>
 				</div>
-				<div class="span1 deleteButton hidden-desktop">
-					<input type="button" data-bind="click: $parent.removeTask" title="Delete" />
+			</script>
+			<!-- editing list -->
+			<script type="text/html" id="editTemplate">
+				<div class="row-fluid task">
+					<div class="span1 prioText">
+					<div class="selectWrapper">
+							<select data-bind="value: prio" title="Select a priority">
+								<option value="-1">Prio</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+							</select>
+						</div>
+					</div>
+					<div class="span2 dateText"><input type="text" class="dateInput" data-bind="value: date" readonly="readonly" class="txtDate" /></div>
+					<div class="span6 taskText"><input type="text" data-bind="value: title" /></div>
+					<div class="span1 offset1 saveButton">
+						<input type="button" data-bind="click: $parent.save" title="Save" value="Save" />
+					</div>
+					<div class="span1 cancelButton">
+						<input type="button" data-bind="click: $parent.cancel" title="Cancel" value="Cancel" />
+					</div>
 				</div>
-			</div>
+			</script>
 		</div><!-- #taskList -->
 	</div><!-- #content -->
 
