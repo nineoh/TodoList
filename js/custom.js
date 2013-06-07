@@ -328,7 +328,7 @@ var highlightRow = function () {
 	if (text.length > 16)
 		text = text.substring(0, 15) + "...";
 
-	$('#infoBox').html(text);
+	$('#infoBox').text(text);
 };
 
 var unhighlightRow = function () {
