@@ -124,6 +124,7 @@ var Task = function(data) {
     };
 
     self.edit = function(task) {
+    	// TODO: fix bug when editing one line and jump to another line for editing
     	if (self.selectedTask() != undefined) {
     		self.selectedTask().prio = self.backupPrio;
     		self.selectedTask().date = self.backupDate;
