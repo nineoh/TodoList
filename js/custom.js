@@ -373,7 +373,7 @@ var exportData = function() {
 };
 
 var importData = function() {
-	alert("Too bad...\nIt's not implemented so far :(");
+	alert("Too bad...\nIt's not implemented yet :(");
 };
 
 var getAllTasks = function() {

@@ -148,9 +148,14 @@ input, select {
 }
 
 div#taskList div.task {
-	padding-top:10px;
 	padding-left:5px;
 	border-bottom: 1px solid #fff;
+	line-height: 40px;
+}
+
+div#taskList div.task input,
+div#taskList div.task select {
+	margin: 0;
 }
 
 div#taskList div.task.selected {
@@ -177,10 +182,13 @@ div#taskList div.cancelButton input,
 div#taskList div.deleteButton input {
 	border: none;
 	width: 25px;
+	height: 25px;
+	line-height: 40px;
 }
 
 div#taskList div.doneButton input
 {
+	margin-top: 0;
 	background: url("../img/tick.png") no-repeat;
 }
 
