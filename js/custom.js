@@ -1,5 +1,10 @@
 $(function() {
 	/*
+	 * Initialize nice scroll plugin for jquery
+	 */
+	 $('html').niceScroll();
+
+	/*
 	 * DatePicker configuration and activation.
 	 */
 	 $.datepicker.regional['de-CH'] = {
