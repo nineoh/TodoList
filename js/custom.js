@@ -2,7 +2,10 @@ $(function() {
 	/*
 	 * Initialize nice scroll plugin for jquery
 	 */
-	 $('html').niceScroll();
+	 $('content').niceScroll();
+
+	 if (getAllTasks().length == 0)
+	 	$('#subHeader2').popover('show');
 
 	/*
 	 * DatePicker configuration and activation.
@@ -303,6 +306,7 @@ var activeTheme;
 var defaultLogo;
 
 var showCreateTaskBar = function () {
+	$('#subHeader2').popover('hide');
 	$(this).children().slideDown(300, function() {
 		$(this).fadeTo(300, 1.0);
 		$(this).stop();
